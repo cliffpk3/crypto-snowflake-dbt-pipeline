@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: stg_crypto_market
+    description: "Tabela tratada da camada Silver contendo dados de mercado de criptomoedas extraídos do JSON bruto."
+    columns:
+      - name: coin_id
+        description: "Identificador único da moeda na API do CoinGecko."
+        tests:
+          - unique
+          - not_null
+
+      - name: symbol
+        description: "Símbolo/Ticker da criptomoeda (ex: btc, eth)."
+        tests:
+          - not_null
+
+      - name: current_price_usd
+        description: "Preço atual em dólares (USD)."
+
+      - name: market_cap_rank
+        description: "Ranking por valor de mercado."
